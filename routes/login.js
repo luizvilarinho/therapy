@@ -17,11 +17,21 @@ const pool = mysql.createPool({
 
 var SECRET = "mytherapy";
 
+login.get("/", (request, response) =>{
+    var objRespopnse = {
+        success:true
+    };
+
+    return response.json(objRespopnse);
+   
+    
+})
 
 login.post("/", (request, response) =>{
     const { email, password } = request.body;
     var objRespopnse = {};
 
+    console.log(email,password);
    
     let findUserQuery = `SELECT * FROM users WHERE email = '${email}'`;
     
@@ -80,7 +90,7 @@ login.post("/", (request, response) =>{
 
         })
     })
-})
+})  
 
 login.get("/users", (request, response)=>{
 
@@ -113,8 +123,6 @@ login.get("/users", (request, response)=>{
 
 
 login.get("/getlogueduser", auth, (request, response)=>{
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header('Access-Control-Allow-Credentials', true);
     var responseObj = {};
 
     pool.getConnection((err, connection) => {

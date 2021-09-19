@@ -12,7 +12,7 @@ function auth(req, res, next){
     const authResponse = {};
     const token = req.headers['x-access-token'];
     config.token = token;
-    //console.log("token", token);
+    console.log("token", token);
 
     if(!token){
         authResponse.message = 'access denied. No token provided.';

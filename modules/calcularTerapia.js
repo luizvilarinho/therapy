@@ -37,12 +37,12 @@ var CalcularTerapia = {
        var idxDia = 0;
     
         for(var d = 0; d < qntComprimidos; d++){
-            
-            var hasDay = this.hasDayInUse(currentData.toLocaleDateString("bt-br"))[0] || "" ;
+            console.log("currentData", currentData.toLocaleDateString())
+            var hasDay = this.hasDayInUse(currentData.toLocaleDateString("pt-br"))[0] || "" ;
     
             if(d == 0 && hasDay == ""){
                 this.hArray.push({
-                    dia:currentData.toLocaleDateString("bt-br"),
+                    dia:currentData.toLocaleDateString("pt-br"),
                     terapia:[{
                         idTerapia:idterapia,
                         nome:dadosUsuario.nome,
@@ -79,7 +79,7 @@ var CalcularTerapia = {
     
                     }else{
                         this.hArray.push({
-                            dia:currentData.toLocaleDateString("bt-br"),
+                            dia:currentData.toLocaleDateString("pt-br"),
                             terapia:[{
                                 idTerapia:idterapia,
                                 nome:dadosUsuario.nome,

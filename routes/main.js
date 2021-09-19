@@ -14,13 +14,10 @@ const pool = mysql.createPool({
     connectionLimit: 10
 });
 
-
 main.get("/", auth, (req, res)=>{
    
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Credentials', true);
-
-    
 
     pool.getConnection((err, connection) => {
         if(err) throw err;
